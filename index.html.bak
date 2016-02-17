@@ -28,7 +28,7 @@
   <body>
     <header>
       <a href="/"><img src="img/profilepic.jpg"></a>
-      <p>Cameron Pittman<br><span>Course Developer</span></p>
+      <p>Julia Hendrickson<br><span>Front-End Developer</span></p>
     </header>
 
     <div class="container">
