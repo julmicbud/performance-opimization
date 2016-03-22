@@ -502,9 +502,15 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+	// changed querySelectorAll() to getElementsByClassName() it will not be more efficient
+  var items = document.getElementsByClass('.mover');
+  console.log();
   for (var i = 0; i < items.length; i++) {
+    console.log("");
+    console.log("i % 5 = " + (i % 5));
+    console.log("document.body.scrollTop = " + document.body.scrollTop);
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+		console.log("phase = " + phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
