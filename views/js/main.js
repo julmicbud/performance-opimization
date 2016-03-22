@@ -504,7 +504,8 @@ function updatePositions() {
 
 	// changed querySelectorAll() to getElementsByClassName() it will not be more efficient
   var items = document.getElementsByClass('.mover');
-  console.log();
+	// moved phase variable outside the loop so it is only declared once
+	var phase;
   for (var i = 0; i < items.length; i++) {
     console.log("");
     console.log("i % 5 = " + (i % 5));
