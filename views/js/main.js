@@ -506,6 +506,8 @@ function updatePositions() {
   var items = document.getElementsByClass('.mover');
 	// moved phase variable outside the loop so it is only declared once
 	var phase;
+  // moved scrollTop so only calculated once per scroll
+  var scrollTopCalc = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
     console.log("");
     console.log("i % 5 = " + (i % 5));
