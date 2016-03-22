@@ -508,10 +508,9 @@ function updatePositions() {
 	var phase;
   // moved scrollTop so only calculated once per scroll
   var scrollTopCalc = document.body.scrollTop / 1250;
+  // Distance to move pizzas
+  var dist;
   for (var i = 0; i < items.length; i++) {
-    console.log("");
-    console.log("i % 5 = " + (i % 5));
-    console.log("document.body.scrollTop = " + document.body.scrollTop);
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
 		console.log("phase = " + phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
