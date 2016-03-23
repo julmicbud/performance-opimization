@@ -439,6 +439,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 // This for-loop actually creates and appends all of the pizzas when the page loads
 // removed varible from the loop
 var pizzaDiv = document.getElementById("randomPizzas");
+// loop adds pizzas at page loads
 for (var i = 2; i < 100; i++) {
  	  pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -482,7 +483,7 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     phase = Math.sin(scrollTopCalc + (i % 5));
     dist = items[i].basicleft + 100 * phase - 1024 + 'px';
-    items[i].style.transform = 'translateX'(' + dist + ');
+    items[i].style.transform = 'translateX(' + dist + ')';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.

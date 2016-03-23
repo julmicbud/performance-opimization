@@ -403,24 +403,24 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changed size to percentage number and value for the width of the pizza
-  var pizzaWidthLabel = "";
+  var pizzaSizeLabel = "";
     switch(size) {
       case "1":
         newWidth = 25;
-        pizzaWidthLabel = "Small";
+        pizzaSizeLabel = "Small";
         break;
       case "2":
         newWidth = 33.3;
-        pizzaWidthLabel = "Medium";
+        pizzaSizeLabel = "Medium";
         break;
       case "3":
         newWidth = 50;
-        pizzaWidthLabel = "Large";
+        pizzaSizeLabel = "Large";
         break;
       default:
         console.log("bug in resizePizzas changes");
     }
-	document.getElementById("pizaSize").innterHTML = pizzaWidthLabel;
+	document.getElementById("pizaSize").innterHTML = pizzaSizeLabel;
 
   var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
   for (var i = 0; i < randomPizzas.length; i++ ) {
