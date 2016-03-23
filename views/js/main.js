@@ -398,7 +398,7 @@ var pizzaElementGenerator = function(i) {
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  // Convert size to percentage number and change value for the size of the pizza above the slider.
+  // size is now in percentage number and changed the value of the pizza above the slider
   var pizzaSizeLabel = "";
   switch(size) {
     case "1":
@@ -432,9 +432,9 @@ var resizePizzas = function(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
-// Removed pizzasDiv variable declaration out of loop so it is not called multiple times.
+// extracted the pizzaDiv variable from the loop
 var pizzasDiv = document.getElementById("randomPizzas");
-// This for-loop actually creates and appends all of the pizzas when the page loads
+// adds all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -467,14 +467,13 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // Changed querySelectorAll() to getElementsByClassName() for efficiency.
+  // Changed querySelectorAll() to getElementsByClassName() to be more effecient
   var items = document.getElementsByClassName('mover');
-  // Moved declaration of phase variable outside of loop so it is not declared multiple times.
+  // phase variable outside of loop so it is not declared multiple times
   var phase;
-  // Moved scrollTop calculation outside of the loop because it only needs to be
-  // calculated once per scroll event.
+  // moved scrollTop calculation outside of the loop only once per scroll now
   var scrollTopCalc = document.body.scrollTop / 1250;
-  // distance to move pizzas horizontally
+  // distance to move pizzas across the screen
   var dist;
   for (var i = 0; i < items.length; i++) {
     phase = Math.sin(scrollTopCalc + (i % 5));
@@ -495,12 +494,12 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-// Generates the sliding pizzas when the page loads.
+// generates the moving pizzas when the page loads
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
-  // Each new row of pizzas starts s px below the above row, with the first row starting at 0px.
+  // new row of pizzas starts s px below the above row, first row starting at 0px.
   var s = 256;
-  // The amount of rows depends on the height of page in the browser and the variable s.
+  // amount of rows depends on the height of page
   var rows = Math.ceil(window.innerHeight / s);
   // Changed the maximum amount of times to loop to be the maximum amount of pizzas
   // that could show on the screen, represented by the maxPizzas variable.
@@ -513,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    // Updated querySelector to getElementById for efficiency.
+    // updated querySelector to getElementById to be more effecient
     document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
