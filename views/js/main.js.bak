@@ -402,25 +402,26 @@ var pizzaElementGenerator = function(i) {
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  // Changes the value for the size of the pizza above the slider
-  function pizzaWidthLabel(size) {
+  // Changed size to percentage number and value for the width of the pizza
+  function pizzaWidthLabel = "" {
     switch(size) {
       case "1":
         newWidth = 25;
         pizzaWidthLabel = "Small";
         break;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
-        return;
+        newWidth = 33.3;
+        pizzaWidthLabel = "Medium";
+        break;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
-        return;
+        newWidth = 50;
+        pizzaWidthLabel = "Large";
+        break;
       default:
-        console.log("bug in changeSliderLabel");
+        console.log("bug in resizePizzas changes");
     }
   }
-
-  changeSliderLabel(size);
+	document.getElementById("pizaSize").innterHTML = pizzaWidthLabel;
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {

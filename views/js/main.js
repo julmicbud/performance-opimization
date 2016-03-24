@@ -423,6 +423,11 @@ var resizePizzas = function(size) {
   }
 	document.getElementById("pizaSize").innterHTML = pizzaWidthLabel;
 
+  var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+  for (var i = 0; i < randomPizzas.length; i++ ) {
+    randomPizzas[i].style.width = newWidth + "%";
+  }
+  
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
