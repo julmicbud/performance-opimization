@@ -403,7 +403,7 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changed size to percentage number and value for the width of the pizza
-  var pizzaWidthLabel = " " ;
+  var pizzaWidthLabel = " ";
     switch(size) {
       case "1":
         newWidth = 25;
@@ -433,7 +433,7 @@ var resizePizzas = function(size) {
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
-};
+
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
